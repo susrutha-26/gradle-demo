@@ -17,7 +17,10 @@ pipeline {
         stage('Package') {
             steps {
                 bat './gradlew build'
+		archiveArtifacts artifacts: 'app/build/libs/*.jar', fingerprint: true
+
             }
+
         }
     }
 }
